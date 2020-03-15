@@ -7,38 +7,38 @@ using namespace std;
 
 struct node
 {
-    int num;    //ÐòºÅ
-    int new_router_num; //ÐÂÔöÂ·ÓÉÆ÷ÊýÁ¿
-    int length; //Â·¾¶³¤¶È
-    node(int a, int b, int c):num(a), new_router_num(b), length(c){}    //¹¹Ôìº¯Êý
+    int num;    //ï¿½ï¿½ï¿½
+    int new_router_num; //ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    int length; //Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    node(int a, int b, int c):num(a), new_router_num(b), length(c){}    //ï¿½ï¿½ï¿½ìº¯ï¿½ï¿½
 };
 
 
 int N, M, K, R;
-bool graph[MAXN][MAXN];	//graph[i][j]µÄÖµ´ú±í×ÅµÚi¸öµãºÍµÚj¸öµãÖ®¼äÊÇ·ñÓÐ±ß£¬¼´µÚi¸öµãÓëµÚj¸öµãÖ®¼äµÄ¾àÀëÊÇ·ñÐ¡ÓÚr 
-int pos[MAXN][2];	//Ã¿ÐÐ´ú±íÒ»¸öÔªËØ£¬Á½ÁÐ·Ö±ðÊÇx×ø±êºÍy×ø±ê 
+bool graph[MAXN][MAXN];	//graph[i][j]ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½Åµï¿½iï¿½ï¿½ï¿½ï¿½Íµï¿½jï¿½ï¿½ï¿½ï¿½Ö®ï¿½ï¿½ï¿½Ç·ï¿½ï¿½Ð±ß£ï¿½ï¿½ï¿½ï¿½ï¿½iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½jï¿½ï¿½ï¿½ï¿½Ö®ï¿½ï¿½Ä¾ï¿½ï¿½ï¿½ï¿½Ç·ï¿½Ð¡ï¿½ï¿½r 
+int pos[MAXN][2];	//Ã¿ï¿½Ð´ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ôªï¿½Ø£ï¿½ï¿½ï¿½ï¿½Ð·Ö±ï¿½ï¿½ï¿½xï¿½ï¿½ï¿½ï¿½ï¿½yï¿½ï¿½ï¿½ï¿½ 
 
 bool inRange(int a, int b, int R) {
     return sqrt(pow(pos[a][0]-pos[b][0],2)+pow(pos[a][1]-pos[b][1],2))<=R;
 }
 
 int bfs(int s, int t) {
-    vector<bool> visited(M+N);	//¼ÇÂ¼Ä³½áµãÊÇ·ñ±»·ÃÎÊ¹ý 
+    vector<bool> visited(M+N);	//ï¿½ï¿½Â¼Ä³ï¿½ï¿½ï¿½ï¿½Ç·ñ±»·ï¿½ï¿½Ê¹ï¿½ 
     queue<node > q;
     node start(s, 0, 1);
     q.push(start);
     while(!q.empty()) {
         node f = q.front();
-        if(f.num == t) return f.length-2;	//µ½´ïÁËÖÕµã 
+        if(f.num == t) return f.length-2;	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õµï¿½ 
         q.pop();
-        for(int i=0; i<N; i++) {	//²»¿¼ÂÇÐÂÔöÂ·ÓÉÆ÷µÄÇé¿öÏÂÑ¡ÔñÂ·¾¶µÄÏÂÒ»¸ö½áµã 
+        for(int i=0; i<N; i++) {	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ 
             if(graph[f.num][i] && !visited[i]) {
-                node temp(i, f.new_router_num, f.length + 1);   //ÒòÎª²»¿¼ÂÇÐÂÔöÂ·ÓÉÆ÷£¬ËùÒÔf.new_router_num²»±ä 
+                node temp(i, f.new_router_num, f.length + 1);   //ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½f.new_router_numï¿½ï¿½ï¿½ï¿½ 
                 q.push(temp);
                 visited[i] = true;
             }
         }
-        for(int i=N; i<N+M; i++) {	//½ö¿¼ÂÇÐÂÔöÂ·ÓÉÆ÷µÄÇé¿öÏÂÑ¡ÔñÂ·¾¶µÄÏÂÒ»¸ö½áµã
+        for(int i=N; i<N+M; i++) {	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½
             if(graph[f.num][i] && !visited[i] && f.new_router_num<K) {
                 node temp(i, f.new_router_num + 1, f.length + 1);
                 q.push(temp);
