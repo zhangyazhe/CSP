@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/zhangyazhe/MyFiles/C:C++Projects/csp/201903_2/main.cpp
+stdio.h
+-
+stack
+-
+

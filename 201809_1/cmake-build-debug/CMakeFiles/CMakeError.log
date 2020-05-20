@@ -1,0 +1,20 @@
+Detecting C [-std=c11] compiler features failed to compile with the following output:
+Change Dir: /Users/zhangyazhe/MyFiles/C:C++Projects/csp/201809_1/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_21a42/fast"
+/Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_21a42.dir/build.make CMakeFiles/cmTC_21a42.dir/build
+CMakeFiles/cmTC_21a42.dir/build.make:64: *** target pattern contains no `%'.  Stop.
+make: *** [cmTC_21a42/fast] Error 2
+
+
+
+Detecting CXX [-std=c++1z] compiler features failed to compile with the following output:
+Change Dir: /Users/zhangyazhe/MyFiles/C:C++Projects/csp/201809_1/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d2286/fast"
+/Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_d2286.dir/build.make CMakeFiles/cmTC_d2286.dir/build
+CMakeFiles/cmTC_d2286.dir/build.make:64: *** target pattern contains no `%'.  Stop.
+make: *** [cmTC_d2286/fast] Error 2
+
+
+
